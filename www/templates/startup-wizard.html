@@ -1,0 +1,74 @@
+<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-light"
+                ng-click="start()">
+            Pular Intro
+        </button>
+        <button class="button button-light" ion-wizard-previous>
+            Voltar
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-light" ion-wizard-next>
+            Próximo
+        </button>
+        <button class="button button-light" ion-wizard-start="start()" condition="startCondition()">
+            Iniciar app
+        </button>
+    </ion-nav-buttons>
+    <ion-slides options="swiperOptions" slider="swiper" ion-wizard>
+        <ion-slide-page ion-wizard-step>
+            <ion-content class="has-header">
+            <div class="row">
+                <div class="col col-center">
+                    <div class="card rounded">
+                        <div class="item">
+                            <h2 class="positive">Thanks for trying out this wizard!</h2>
+                        </div>
+                        <div class="item item-text-wrap">
+                            <p>
+                                Click the buttons above
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </ion-content>
+        </ion-slide-page>
+        <ion-slide-page ion-wizard-step next-condition="user.telefone" prev-condition="!user.telefone">
+            <ion-content class="has-header">
+            <div class="row">
+                <div class="col col-center">
+                    <div class="item item-avatar">
+                      <img src="{{user.fotoPerfil}}">
+                      <h2>{{user.nome}}</h2>
+                      <p>{{user.email}}</p>
+                    </div>
+                    <div class="item item-input-inset">
+                        <label class="item item-input-wrapper">
+                            <i class="icon ion-search placeholder-icon"></i>
+                            <input type="text" placeholder="Type something" ng-model="user.telefone" autocomplete="off">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            </ion-content>
+        </ion-slide-page>
+        <ion-slide-page ion-wizard-step class="has-header">
+            <div class="row">
+                <div class="col col-center">
+                    <h3 class="positive">Thanks for running the wizard!</h3>
+                    <p>As a last step please fill in the field below</p>
+                    <div class="item item-input-inset">
+                        <label class="item item-input-wrapper">
+                            <i class="icon ion-search placeholder-icon"></i>
+                            <input type="text" placeholder="Type something" ng-model="user.telefone" autocomplete="off">
+                        </label>
+                    </div>
+                    <h3 ng-show="user.telefone">You can now launch the app using the button above!</h3>
+                </div>
+            </div>
+        </ion-slide-page>
+    </ion-slides>
+
+</ion-view>

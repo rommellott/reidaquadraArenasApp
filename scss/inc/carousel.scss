@@ -1,0 +1,54 @@
+
+
+
+/* Template Demo 1 */
+.carousel-item.demo-1 {
+    position: relative;
+    width: 55px;
+    height: 50px;
+    border-radius: 5px;
+    background: #555;
+    margin-right: 5px;
+}
+
+.carousel-item.demo-1 .circle {
+    position: relative;
+    height: 50px;
+    transition: all .3s cubic-bezier(.215, .610, .355, 1.000);
+    border-radius: 5px;
+}
+.carousel-item.demo-1 .circle  > span {
+    display: block;
+    text-align:center;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.a-carousel li .carousel-item.demo-1 .circle  > span {
+    color: #efefef;
+    //font-size: 14px;
+}
+
+
+.a-carousel li.active .carousel-item.demo-1 .circle {
+    background: $energized;
+}
+.a-carousel li.active .carousel-item.demo-1 .circle  > span {
+    color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+

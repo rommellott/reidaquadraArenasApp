@@ -1,23 +1,87 @@
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
-
-For example, you might change some of the default colors:
-
 $light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
-*/
+$stable:                          #555 !default;
+$positive:                        #009688 !default;
+$calm:                            #00BCD4 !default;
+$balanced:                        #66cc33 !default;
+$energized:                       #FFC107 !default;
+$assertive:                       #F34235 !default;
+$royal:                           #8a6de9 !default;
+$dark:                            #2e2f31 !default;
+$base-background-color:           #282828 !default;
+
+$base-color:                      #efefef !default;
+$card-header-bg:                  #444 !default;
+$card-body-bg:                    #333 !default;
+$card-footer-bg:                  #444 !default;
+
+$button-stable-bg:                $stable !default;
+$button-stable-text:              #efefef !default;
+$button-stable-border:            #444 !default;
+$button-stable-active-bg:         #444 !default;
+$button-stable-active-border:     #333 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+$RobotoDraftFontPath: "../fonts"; // REMINDER: edit as appropriate!
+$RobotoDraftFontName: "RobotoDraft";
+$RobotoDraftFontVersion: "1.0.0";
+
 // Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
+@import "www/lib/ionic/scss/ionic",
+        "www/lib/ionic-material/src/scss/index";
+
+@import 
+    "www/lib/bourbon/app/assets/stylesheets/_bourbon",
+    "www/lib/robotodraft/sass/robotodraft.scss";
+
+@import 
+    "scss/inc/cards",
+    "scss/inc/carousel",
+    
+    "scss/inc/arena-view",
+    "scss/inc/list-view"; 
+
+
+
+hr{
+   display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #555;
+    margin: 1em 0;
+    padding: 0; 
+}
+
+.angular-google-map-container { height: 40vh; }
+
+.item-icon-small { font-size:large !important; color: #666 }
+
+.button-bar > .button:last-child {
+  border-radius: 0px 20px 20px 0px !important;
+}
+.button-bar > .button:first-child {
+    border-radius: 20px 0px 0px 20px !important;
+}
+
+#gmap {
+  width: 100%;
+  height: 100% !important;
+}
+
+.scroll, 
+.mapWrap {
+  height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,0 +1,87 @@
+.cards-view{
+  .bar-header{
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5));
+    background: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5));
+    background: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.5));
+	  color: $header-color;
+    border-bottom: none;
+    box-shadow: none;
+  } 
+  .bar .button{
+    color: $header-color;
+  }
+
+	.card-2
+	{
+		color: $card-2-color;
+
+        a{
+            text-decoration: none;
+        }
+
+		.card
+		{
+			padding-top: 0px;
+  		    padding-bottom: 0px;
+			margin: 16px 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 6px 6px rgba(0,0,0,0.1);
+            border-radius: 0px;
+		}
+
+		.card-outer
+		{
+			padding: 0px;
+
+			.card-image
+			{
+				padding: 0px;
+
+				.main-image
+				{
+					img
+					{
+						width: 100%;
+					}
+				}
+			}
+
+			.card-content
+			{
+				margin: 0px;
+				padding: 10px;
+				// card width = 100vw - 20px
+				// left-image width = 25% of card = 25 * (100vw -20px) / 100
+				// left-image height = 200% width of image = (25 * (100vw -20px) / 100) * 2
+				// card content height = left-image height = (100vw -20px) / 2 = 100vw/2 - 20px/2 = 50vw - 10px
+				// But i added 2x10px of margin so card content height = 50vw - (10px + 2*(10px)) = 50vw - 30px
+				@include calc(height, "50vw - 40px");
+				overflow: hidden;
+
+				.card-title
+				{
+					font-size: 22px;
+  				font-weight: 200;
+					margin-bottom: 5px;
+				}
+
+				.card-description-outer
+				{
+					.card-description
+					{
+						margin-bottom: 3px;
+						color: lighten($card-2-color, 45%);
+						text-overflow: ellipsis;
+					  white-space: nowrap;
+					  overflow: hidden;
+
+						&:last-child
+						{
+							margin-bottom: 0px;
+						}
+					}
+
+				}
+			}
+		}
+	}
+}

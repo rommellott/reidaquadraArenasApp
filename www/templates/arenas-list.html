@@ -1,0 +1,50 @@
+<ion-view view-title="ARENAS" class="cards-view">
+
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-buttons side="right">
+      <a class="button button-icon icon ion-android-funnel"></a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ui-gmap-google-map center='actrl.map.center' options='actrl.map.options' zoom='actrl.map.zoom'>
+    <ui-gmap-marker ng-repeat="arena in actrl.arenas" idKey='arena.id' coords='arena.l'>
+    </ui-gmap-marker>
+  </ui-gmap-google-map>
+  <ion-content class="padding-horizontal" style="margin-top: 25vh;">
+    <!--<ion-list>
+      <ion-item ng-repeat="arena in actrl.arenas | orderBy:'distance'" class="item-remove-animate item-avatar item-icon-right"
+        type="item-text-wrap" href="#/tab/arenas/{{arena.id}}">
+        <img ng-src="{{arena.fotoPerfil}}">
+        <h2>{{arena.nome}}</h2>
+        <p>{{arena.distance | number : 2}} km</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
+    </ion-refresher>-->
+    <div class="card-2" ng-repeat="arena in actrl.arenas | orderBy:'distance'">
+      <a ng-click="actrl.arenaService.arenaSelecionada = arena;" href="#/tab/arenas/{{arena.id}}">
+        <div class="list card">
+          <div class="row card-outer">
+            <div class="col col-50 card-image">
+              <pre-img ratio="_1_2" helper-class="main-image">
+                <img ng-src="{{arena.fotoPerfil}}" spinner-on-load>
+              </pre-img>
+            </div>
+            <div class="col card-content">
+              <h2 class="card-title">{{arena.nome}}</h2>
+              <div class="card-description-outer">
+                <p class="card-description"><b>Teste</b> Reviews</p>
+                <p class="card-description">{{arena.distance | number : 2}} km</p>
+                <p class="card-description">Teste</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </a>
+    </div>
+    <br/><br/>
+  </ion-content>
+</ion-view>

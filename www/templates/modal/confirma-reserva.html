@@ -1,0 +1,30 @@
+<ion-modal-view class="confirmacao-reserva">
+  <ion-content>
+    <div class="header">
+      <button class="button button-clear button-primary ion-close-round" ng-click="modal.hide()"></button>
+      <div class="content">
+        <h5><img src="img/estrutura/quadra.png"/> {{modalData.quadra.nome}} </h5>
+        <h5><i class="icon ion-clock"></i>{{modalData.horario.start | date :'EEEE'}}, dia {{modalData.horario.start |
+          date :'d'}} às {{modalData.horario.start | date :'HH:mm'}}</h5>
+      </div>
+    </div>
+    <div class="list padding double-padding-x">
+      <div class="content padding text-center">
+        <h5>DURAÇÃO</h5>
+        <div class="button-bar" style="box-shadow:none">
+          <a grouped-radio="1" ng-model="modalData.duracao">1h</a>
+          <a grouped-radio="1.5" ng-if="modalData.horarioExtraDisponivel >= 1.5" ng-model="modalData.duracao">1,5h</a>
+          <a grouped-radio="2" ng-if="modalData.horarioExtraDisponivel >= 2" ng-model="modalData.duracao">2h</a>
+          <a grouped-radio="2.5" ng-if="modalData.horarioExtraDisponivel >= 2.5" ng-model="modalData.duracao">2,5h</a>
+        </div>
+        <br/>
+        <br/>
+        <h5>PREÇO</h5>
+        <h1>{{modalData.horario.preco * modalData.duracao | currency:'R$'}}</h1>
+      </div>
+      <div style="padding:20px">
+        <button class="button button-full button-assertive" ng-click="SalvarReserva();">Confirmar</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

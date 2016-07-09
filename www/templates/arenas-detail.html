@@ -1,0 +1,43 @@
+<ion-view view-title="{{vm.arena.nome}}" class="profile-view">
+  <ion-content ng-class="{expanded:$scope.isExpanded}">
+    <div class="padding-horizontal">
+      <div class="card">
+        <h5 class="card-title">HORÁRIOS DISPONÍVEIS</h5>
+        <hr/>
+        <div class="content padding double-padding-x">
+          <a-carousel carousel-options="::vm.carouselOptions1" array-provider="::vm.carouselData1" on-select="vm.onSelectCarousel(item)">
+          </a-carousel>
+          <div class="col col-100 text-center">
+            <h4>{{vm.diaSelecionadoTitle}}</h4>
+          </div>
+          <ion-list class="horarios">
+            <ul>
+              <li ng-repeat="horario in vm.horariosPorQuadra" ng-if="horario.horarios.length >0">
+                <p>{{horario.quadra.nome}} ({{horario.quadra.tipo}})</p>
+                <div class="row" ng-repeat="hr in horario.horarios | orderBy:'start'" ng-if="$index % 3 === 0">
+                  <div class="col col-33" ng-if="$index < horario.horarios.length">
+                    <button ng-click="vm.openConfirmacaoModal(horario , $index);" class="button button-block button-small button-stable">
+                {{horario.horarios[$index].start | date :'HH:mm'}} <br/>  <span class="energized" >{{horario.horarios[$index].preco | currency : "R$"}}</span>
+                    </button>
+                  </div>
+                  <div class="col col-33" ng-if="$index + 1 < horario.horarios.length">
+                    <button ng-click="vm.openConfirmacaoModal(horario, $index + 1);" class="button button-block button-small button-stable">
+               {{horario.horarios[$index + 1].start| date :'HH:mm'}} <br/>  <span class="energized" >{{horario.horarios[$index + 1].preco | currency : "R$"}}</span>
+                    </button>
+                  </div>
+                  <div class="col col-33" ng-if="$index + 2 < horario.horarios.length">
+                    <button ng-click="vm.openConfirmacaoModal(horario , $index + 2);" class="button button-block button-small button-stable">
+                {{horario.horarios[$index + 2].start| date :'HH:mm'}} <br/>  <span class="energized" >{{horario.horarios[$index + 2].preco | currency : "R$"}}</span>
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </ion-list>
+        </div>
+      </div>
+    </div>
+    <br/>
+
+  </ion-content>
+</ion-view>
