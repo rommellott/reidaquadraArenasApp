@@ -1,12 +1,11 @@
 /*global _ moment firebase*/
 'use strict';
 angular.module('main')
-  .controller('ArenaDetailsCtrl', function (ArenasService, $scope, $timeout, ReservasService, $stateParams, $ionicModal, ionicMaterialMotion, ionicMaterialInk) {
+  .controller('ArenaDetailsCtrl', function (ArenasService, $scope, $timeout, ReservasService, $ionicModal, ionicMaterialMotion, ionicMaterialInk) {
     var vm = this;
-    vm.arena = ArenasService.arenaSelecionada;
-    vm.album = ArenasService.getAlbum($stateParams.id);
-    vm.quadras = ArenasService.getQuadrasArena(vm.arena.id);
-    vm.estrutura = ArenasService.getEstrutura(vm.arena.id);
+    var arenaId = "arenateste";
+    vm.arena = ArenasService.getArena(arenaId);
+    vm.quadras = ArenasService.getQuadrasArena(vm.arena.$id);
     vm.intervaloSelecionado = {};
     vm.horariosPorQuadra = [];
     vm.reservas = [];
@@ -34,22 +33,6 @@ angular.module('main')
       }).then(function (modal) {
         $scope.modal = modal;
       });
-
-      // $ionicModal.fromTemplateUrl('templates/modal/album-arena.html', {
-      //   scope: $scope,
-      //   animation: 'slide-in-up'
-      // }).then(function (modal) {
-      //   $scope.modalAlbum = modal;
-      //   $scope.albumArena = vm.album;
-      // });
-
-      // $ionicModal.fromTemplateUrl('templates/modal/estrutura-arena.html', {
-      //   scope: $scope,
-      //   animation: 'slide-in-up'
-      // }).then(function (modal) {
-      //   $scope.modalAlbum = modal;
-      //   $scope.albumArena = vm.album;
-      // });
     }
 
     function createArray() {
@@ -73,7 +56,7 @@ angular.module('main')
       vm.intervaloSelecionado = getIntervaloDia(date);
       vm.reservas = ReservasService
         .getReservasDia(
-        $stateParams.id,
+        vm.arena.$id,
         vm.intervaloSelecionado.start,
         vm.intervaloSelecionado.end)
         .$loaded().then(getHorariosLivres);

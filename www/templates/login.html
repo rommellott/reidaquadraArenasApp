@@ -1,13 +1,25 @@
-<ion-view>
-  <!-- do you want padding? -->
-  <ion-content class="padding">
-
-    <h1>Welcome to My Awesome App</h1>
-    <div id="firebaseui-auth-container"></div>
-    
-    <div id="quickstart-sign-in-status"></div>
-    <div id="quickstart-sign-in"></div>
-    <div id="quickstart-account-details"></div>
-
+<ion-view hide-nav-bar="true" view-title="Rei da Quadra ARENAS" class="profile-view">
+  <ion-content padding="true">
+    <div class="row row-center padding-horizontal">
+      <div class="col col-center">
+        <div class="padding-horizontal">
+          <div class="card padding">
+            <h3 class="card-title">Acesse o portal do administrador</h3>
+            <hr/>
+            <label class="item item-input">
+              <span class="input-label">Email</span>
+              <input type="email" required name="email" placeholder="E-mail" type="email" ng-model="email">
+            </label>
+            <br/>
+            <label class="item item-input">
+              <span class="input-label">Senha</span>
+              <input required name="pass" placeholder="Senha" type="password" ng-model="pass">
+            </label>
+            <br/>
+            <button class="button button-block button-small button-stable" ng-click="passwordLogin(email, pass)">Entrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

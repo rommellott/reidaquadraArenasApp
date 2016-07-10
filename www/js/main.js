@@ -91,8 +91,9 @@ angular.module('main', [
     tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-locale-pt-br/angular-locale_pt-br.js');
 
     // ROUTING with ui.router
-    //$urlRouterProvider.otherwise('/login');
-    $urlRouterProvider.otherwise('/tab/arenas');
+    $urlRouterProvider.otherwise('/login');
+    //$urlRouterProvider.otherwise('/tab/arenas/arenateste');
+    
     $stateProvider
       // this state is placed in the <ion-nav-view> in the index.html
       .state('login', {
@@ -125,15 +126,15 @@ angular.module('main', [
         controller: 'ApplicationController'
       })
 
-      .state('tab.arenas', {
-        url: '/arenas',
-        views: {
-          'tab.arenas': {
-            templateUrl: 'templates/arenas-list.html',
-            controller: 'ArenasCtrl as actrl',
-          }
-        }
-      })
+      // .state('tab.arenas', {
+      //   url: '/arenas',
+      //   views: {
+      //     'tab.arenas': {
+      //       templateUrl: 'templates/arenas-list.html',
+      //       controller: 'ArenasCtrl as actrl',
+      //     }
+      //   }
+      // })
 
       .state('tab.arenas-detail', {
         url: '/arenas/:id',

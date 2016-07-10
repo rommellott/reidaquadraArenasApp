@@ -11,7 +11,7 @@ angular.module('main')
       getQuadrasArena: getQuadrasArena,
       getAlbum: getAlbum,
       getEstrutura: getEstrutura,
-      arenaSelecionada: null
+      arenaSelecionada: "arenateste"
       //createGeo: createGeo
     };
 
